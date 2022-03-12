@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Hero from './containers/Hero'
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-     <h1>Timo Heman</h1>
+    <div className="min-h-screen bg-dark px-16">
+      <Hero />
     </div>
   )
 }
