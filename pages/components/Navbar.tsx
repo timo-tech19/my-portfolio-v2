@@ -24,17 +24,35 @@ const links = [
   },
 ]
 
+const socials = [
+  {
+    id: 0,
+    name: 'Twitter',
+    url: 'https://twitter.com/timo__tech',
+  },
+  {
+    id: 0,
+    name: 'GitHub',
+    url: 'https://github.com/timo-tech19',
+  },
+  {
+    id: 0,
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/timo-heman-002302160',
+  },
+]
+
 function Navbar() {
-  const [activeLink, setActiveLink] = useState(3)
+  const [activeLink, setActiveLink] = useState(0)
 
   return (
-    <div className="fixed bottom-4 left-16">
+    <div className="absolute bottom-0 left-0">
       <ul>
         {links.map(({ title, href }, i) => (
           <li key={i}>
-            <Link href="#home">
+            <Link href={href}>
               <div
-                className={`mb-4 flex items-center font-bold uppercase text-white ${
+                className={`mb-4 flex cursor-pointer items-center font-bold uppercase text-white ${
                   activeLink !== i ? 'opacity-50' : ''
                 }`}
               >
@@ -45,6 +63,18 @@ function Navbar() {
                   } border-t-2 border-t-white`}
                 />
                 <span>{title}</span>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      {/* Socials */}
+      <ul className="mt-8 flex">
+        {socials.map(({ id, name, url }) => (
+          <li key={id} className="mr-4">
+            <Link href={url}>
+              <div className="cursor-pointer p-1 text-lg font-bold text-white">
+                <span>{name}</span>
               </div>
             </Link>
           </li>
