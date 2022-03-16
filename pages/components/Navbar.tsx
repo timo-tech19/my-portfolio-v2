@@ -52,7 +52,7 @@ function Navbar() {
           <li key={i}>
             <Link href={href}>
               <div
-                className={`mb-4 flex cursor-pointer items-center font-bold uppercase text-white ${
+                className={`mb-4 flex cursor-pointer items-center text-sm font-black uppercase text-white ${
                   activeLink !== i ? 'opacity-50' : ''
                 }`}
               >

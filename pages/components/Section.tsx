@@ -5,7 +5,7 @@ interface Props {
 }
 function Section({ children }: Props) {
   return (
-    <section className="pt-8">
+    <section className="h-full  pt-8">
       <div className="mb-8 flex items-center">
         <h3 className="relative px-2 text-4xl font-black uppercase tracking-wider before:absolute before:-right-20 before:-top-8 before:text-8xl before:font-black  before:opacity-10 before:content-['02']">
           <div className="absolute top-0 left-0 h-full w-1/2 bg-gradient-to-r from-primary to-secondary" />
