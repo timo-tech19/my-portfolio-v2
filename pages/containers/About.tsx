@@ -3,7 +3,7 @@ import Section from '../components/Section'
 
 function About() {
   return (
-    <Section>
+    <Section title="About" num="02">
       <div className="flex">
         <div className="mb-2 w-1/2">
           <p className="pr-8 leading-relaxed">
@@ -33,7 +33,7 @@ function About() {
         <div className="flex w-1/2 items-center justify-center">
           <div className="relative h-[25rem] w-[25rem]">
             <div className="absolute h-full w-full rotate-2 bg-gradient-to-br from-primary to-secondary"></div>
-            <div className="absolute h-full w-full bg-[#000]"></div>
+            <div className="absolute h-full w-full bg-black"></div>
           </div>
         </div>
       </div>
