@@ -38,7 +38,7 @@ function Projects() {
                   {`0${i + 1}`} - {title}
                 </h3>
                 <div
-                  className={`mb-2 w-16 border-2 ${
+                  className={`mb-2 w-16 border-t-4 ${
                     i % 2 === 0 ? 'border-secondary' : 'border-primary'
                   }`}
                 />
