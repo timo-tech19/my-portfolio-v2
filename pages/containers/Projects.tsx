@@ -25,10 +25,8 @@ function Projects() {
       <div className="flex">
         <div className="w-1/2">
           <p className="w-3/4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-            eveniet ipsum perferendis recusandae placeat velit possimus omnis
-            commodi ducimus, facere animi tempora aliquid sequi sed fuga laborum
-            laudantium aliquam reprehenderit.
+            Here are a few of my personal projects. I really enjoyed building
+            these. Click on the cards to view.
           </p>
         </div>
         <div className="w-1/2">

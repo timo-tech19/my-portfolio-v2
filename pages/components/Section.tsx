@@ -8,7 +8,7 @@ interface Props {
 function Section({ children, title, num }: Props) {
   console.log(num)
   return (
-    <section className="h-full  pt-8">
+    <section className="h-screen pt-8">
       <div className="mb-8 flex items-center">
         <h3
           className={`relative px-2 text-4xl font-black uppercase tracking-wider before:absolute before:-right-20 before:-top-8 before:text-8xl before:font-black  before:opacity-10 before:content-['${num}']`}
