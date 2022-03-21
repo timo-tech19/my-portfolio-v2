@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { BsTwitter, BsGithub, BsLinkedin } from 'react-icons/bs'
 
 const links = [
   {
@@ -30,16 +31,19 @@ const socials = [
     id: 0,
     name: 'Twitter',
     url: 'https://twitter.com/timo__tech',
+    Icon: BsTwitter,
   },
   {
-    id: 0,
+    id: 1,
     name: 'GitHub',
     url: 'https://github.com/timo-tech19',
+    Icon: BsGithub,
   },
   {
-    id: 0,
+    id: 2,
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/timo-heman-002302160',
+    Icon: BsLinkedin,
   },
 ]
 
@@ -71,11 +75,12 @@ function Navbar() {
       </ul>
       {/* Socials */}
       <ul className="mt-8 flex">
-        {socials.map(({ id, name, url }) => (
+        {socials.map(({ id, name, url, Icon }) => (
           <li key={id} className="mr-4">
             <Link href={url}>
-              <div className="cursor-pointer p-1 text-lg font-bold text-white">
+              <div className="flex cursor-pointer p-1 text-lg font-bold text-white">
                 <span>{name}</span>
+                <Icon className="ml-2 h-4 w-4" />
               </div>
             </Link>
           </li>

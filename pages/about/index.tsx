@@ -1,4 +1,12 @@
 import React from 'react'
+import { FaReact } from 'react-icons/fa'
+import {
+  SiExpress,
+  SiGraphql,
+  SiJavascript,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
 
@@ -28,12 +36,27 @@ function About() {
               the way:
             </p>
             <ul className="mt-4 flex w-full flex-wrap px-8">
-              <li className="mb-2 w-1/2">React</li>
-              <li className="mb-2 w-1/2">JavaScript</li>
-              <li className="mb-2 w-1/2">TypeScript</li>
-              <li className="mb-2 w-1/2">TailWind CSS</li>
-              <li className="mb-2 w-1/2">GraphQL</li>
-              <li className="mb-2 w-1/2">Express</li>
+              <li className="mb-2 flex w-1/2 items-center">
+                <FaReact className="mr-4 h-6 w-6 text-[#61DBFB]" /> React
+              </li>
+              <li className="mb-2 flex w-1/2 items-center">
+                <SiJavascript className="mr-4 h-6 w-6 text-[#F7DF1E]" />{' '}
+                JavaScript
+              </li>
+              <li className="mb-2 flex w-1/2 items-center">
+                <SiTypescript className="mr-4 h-6 w-6 text-[#1976D2]" />{' '}
+                TypeScript
+              </li>
+              <li className="mb-2 flex w-1/2 items-center">
+                <SiTailwindcss className="mr-4 h-6 w-6 text-[#6DD7B9]" />{' '}
+                TailWind CSS
+              </li>
+              <li className="mb-2 flex w-1/2 items-center">
+                <SiGraphql className="mr-4 h-6 w-6 text-[#FF4081]" /> GraphQL
+              </li>
+              <li className="mb-2 flex w-1/2 items-center">
+                <SiExpress className="mr-4 h-6 w-6 text-white" /> Express
+              </li>
             </ul>
           </div>
           <div className="flex w-1/2 items-center justify-center">
