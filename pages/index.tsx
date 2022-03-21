@@ -1,26 +1,43 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import React from 'react'
 import Link from 'next/link'
-import { useState } from 'react'
-import Logo from './components/Logo'
-import Navbar from './components/Navbar'
-import About from './containers/About'
-import Contact from './containers/Contact'
-import Hero from './containers/Hero'
-import Projects from './containers/Projects'
+import Layout from './components/Layout'
 
-const Home: NextPage = () => {
+function Hero() {
   return (
-    <div className="relative mx-auto min-h-screen max-w-[1270px] bg-dark px-2">
-      {/* <Hero /> */}
-      {/* <About /> */}
-      {/* <Projects /> */}
-      <Contact />
-      <Navbar />
-      <Logo />
-    </div>
+    <Layout>
+      <header className="flex h-full w-full flex-col pt-16">
+        {/* Header line and name */}
+        <div className="flex items-center justify-between">
+          <div className="mr-8 grow border-t-2 border-t-white opacity-30" />
+          <h1 className="text-4xl font-black uppercase text-white ">
+            <span>Timo</span> <span className="text-secondary">Heman</span>
+          </h1>
+        </div>
+
+        {/* Big title */}
+        <div className="mt-8">
+          <h2 className="mx-auto flex w-11/12 flex-col text-4xl font-bold text-white md:text-8xl">
+            <span className="self-start">Front-End</span>
+            <span className="self-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-5xl uppercase text-transparent md:text-8xl ">
+              Web
+            </span>
+            <span className="self-end">Developer</span>
+          </h2>
+        </div>
+
+        <div className="mx-auto">
+          <Link href="mailto:timoheman16@gmail.com">
+            <button
+              type="button"
+              className=" mx-auto mt-8 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white"
+            >
+              Work With Me
+            </button>
+          </Link>
+        </div>
+      </header>
+    </Layout>
   )
 }
 
-export default Home
+export default Hero

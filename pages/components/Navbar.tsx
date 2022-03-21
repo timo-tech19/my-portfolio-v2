@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 const links = [
@@ -43,7 +44,7 @@ const socials = [
 ]
 
 function Navbar() {
-  const [activeLink, setActiveLink] = useState(0)
+  const router = useRouter()
 
   return (
     <div className="absolute bottom-0 left-0">
@@ -53,13 +54,13 @@ function Navbar() {
             <Link href={href}>
               <div
                 className={`mb-4 flex cursor-pointer items-center text-sm font-black uppercase text-white ${
-                  activeLink !== i ? 'opacity-50' : ''
+                  router.pathname === href ? '' : 'opacity-50'
                 }`}
               >
                 <span>{`0${i + 1}`}</span>
                 <span
                   className={`mx-4 ${
-                    activeLink === i ? 'w-20' : 'w-8'
+                    router.pathname === href ? 'w-20' : 'w-8'
                   } border-t-2 border-t-white`}
                 />
                 <span>{title}</span>
