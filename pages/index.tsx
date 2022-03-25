@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Layout from './components/Layout'
+import Loading from './components/Loading'
 
 function Hero() {
+  const [loading, setLoading] = useState(true)
+
+  if (loading) return <Loading onComplete={() => setLoading(false)} />
+
   return (
     <Layout>
       <header className="flex h-full w-full flex-col pt-16">
@@ -16,12 +21,12 @@ function Hero() {
 
         {/* Big title */}
         <div className="mt-8">
-          <h2 className="mx-auto flex w-11/12 flex-col text-4xl font-bold text-white md:text-8xl">
-            <span className="self-start">Front-End</span>
-            <span className="self-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-5xl uppercase text-transparent md:text-8xl ">
+          <h2 className="mx-auto mt-12 flex w-11/12 flex-col text-center text-5xl font-bold text-white md:mt-8 md:text-8xl">
+            <span className="md:self-start">Front-End</span>
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-7xl uppercase text-transparent md:self-center md:text-8xl ">
               Web
             </span>
-            <span className="self-end">Developer</span>
+            <span className="md:self-end">Developer</span>
           </h2>
         </div>
 
@@ -29,7 +34,7 @@ function Hero() {
           <Link href="mailto:timoheman16@gmail.com">
             <button
               type="button"
-              className=" mx-auto mt-8 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white"
+              className="mx-auto mt-16 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white md:mt-8"
             >
               Work With Me
             </button>
