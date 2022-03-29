@@ -35,6 +35,7 @@ function Loading({ onComplete }: Props) {
       <motion.h1 className="flex h-full w-full items-center justify-center text-9xl font-black tracking-wide ">
         {'timotech'.split('').map((char, i) => (
           <motion.span
+            key={i}
             initial={{
               opacity: 0,
               x: 100,
@@ -45,22 +46,6 @@ function Loading({ onComplete }: Props) {
             {char}
           </motion.span>
         ))}
-        {/* <motion.span
-          variants={letterVariant}
-          initial="start"
-          animate="show"
-          className="flex h-full w-1/2 items-center justify-end"
-        >
-          timo
-        </motion.span>
-        <motion.span
-          variants={letterVariant}
-          initial="start"
-          animate="show"
-          className="flex h-full w-1/2 items-center justify-start"
-        >
-          tech
-        </motion.span> */}
       </motion.h1>
     </div>
   )

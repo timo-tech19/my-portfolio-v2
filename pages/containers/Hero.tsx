@@ -1,39 +1,90 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { motion, useAnimation } from 'framer-motion'
 
 function Hero() {
+  const topLine = useAnimation()
+  const topName = useAnimation()
+  const titleLeft = useAnimation()
+  const titleRight = useAnimation()
+  const titleCenter = useAnimation()
+  const btn = useAnimation()
+
+  async function sequence() {
+    await topLine.start({ width: '100%', transition: { duration: 0.5 } })
+    await topName.start({ opacity: 1, x: 0 })
+    await titleCenter.start({ scale: 1, opacity: 1 })
+    titleLeft.start({ x: 0, opacity: 1 })
+    await titleRight.start({ x: 0, opacity: 1 })
+    btn.start({ y: 0, scale: 1, opacity: 1 })
+  }
+
+  useEffect(() => {
+    sequence()
+  }, [])
+
   return (
-    <div className="flex h-full w-full flex-col pt-16">
-      {/* Header line and name */}
-      <div className="flex items-center justify-between">
-        <div className="mr-8 grow border-t-2 border-t-white opacity-30" />
-        <h1 className="text-4xl font-black uppercase text-white ">
-          <span>Timo</span> <span className="text-secondary">Heman</span>
-        </h1>
-      </div>
-
-      {/* Big title */}
-      <div className="mt-16">
-        <h2 className="mx-auto flex w-11/12 flex-col text-4xl font-bold text-white md:text-8xl">
-          <span className="self-start">Front-End</span>
-          <span className="self-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-5xl uppercase text-transparent md:text-8xl ">
-            Web
-          </span>
-          <span className="self-end">Developer</span>
-        </h2>
-      </div>
-
-      <div className="mx-auto">
-        <Link href="mailto:timoheman16@gmail.com">
-          <button
-            type="button"
-            className=" mx-auto mt-8 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white"
+    <>
+      <header className="flex h-screen w-full flex-col pt-16">
+        {/* Header line and name */}
+        <div className="flex items-center justify-between">
+          <div className="mr-8 grow">
+            <motion.div
+              animate={topLine}
+              initial={{ width: '0%' }}
+              className="border-t-2 border-t-white opacity-30"
+            />
+          </div>
+          <motion.h1
+            animate={topName}
+            initial={{ opacity: 0, x: -100 }}
+            className="text-4xl font-black uppercase text-white "
           >
-            Work With Me
-          </button>
-        </Link>
-      </div>
-    </div>
+            <span>Timo</span> <span className="text-secondary">Heman</span>
+          </motion.h1>
+        </div>
+
+        {/* Big title */}
+        <div className="mt-8">
+          <motion.h2 className="mx-auto mt-12 flex w-11/12 flex-col text-center text-5xl font-bold text-white md:mt-8 md:text-8xl">
+            <motion.span
+              animate={titleLeft}
+              initial={{ x: 100, opacity: 0 }}
+              className="md:self-start"
+            >
+              Front-End
+            </motion.span>
+            <motion.span
+              animate={titleCenter}
+              initial={{ scale: 0.6, opacity: 0 }}
+              className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-7xl uppercase text-transparent md:self-center md:text-8xl "
+            >
+              Web
+            </motion.span>
+            <motion.span
+              animate={titleRight}
+              initial={{ x: -100, opacity: 0 }}
+              className="md:self-end"
+            >
+              Developer
+            </motion.span>
+          </motion.h2>
+        </div>
+
+        <div className="mx-auto">
+          <Link href="mailto:timoheman16@gmail.com">
+            <motion.button
+              animate={btn}
+              initial={{ y: -100, opacity: 0, scale: 0.6 }}
+              type="button"
+              className="mx-auto mt-16 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white md:mt-8"
+            >
+              Work With Me
+            </motion.button>
+          </Link>
+        </div>
+      </header>
+    </>
   )
 }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import Section from '../components/Section'
 
 const projects = [
@@ -22,7 +21,7 @@ const projects = [
 
 function Projects() {
   return (
-    <Layout>
+    <>
       <Section title="Projects" num="03">
         <div className="flex">
           <div className="w-1/2">
@@ -48,7 +47,7 @@ function Projects() {
           </div>
         </div>
       </Section>
-    </Layout>
+    </>
   )
 }
 

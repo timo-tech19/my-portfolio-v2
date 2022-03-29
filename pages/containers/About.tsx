@@ -7,12 +7,11 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si'
-import Layout from '../components/Layout'
 import Section from '../components/Section'
 
 function About() {
   return (
-    <Layout>
+    <>
       <Section title="About" num="02">
         <div className="flex flex-col-reverse md:flex-row">
           <div className="mb-2 md:w-1/2">
@@ -67,7 +66,7 @@ function About() {
           </div>
         </div>
       </Section>
-    </Layout>
+    </>
   )
 }
 

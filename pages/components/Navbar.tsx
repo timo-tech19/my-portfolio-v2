@@ -51,19 +51,19 @@ function Navbar() {
   const router = useRouter()
 
   return (
-    <div className="absolute bottom-0 left-0">
+    <div className="fixed bottom-2 left-2 -z-10">
       <ul>
         {links.map(({ title, href }, i) => (
           <li key={i}>
             <Link href={href}>
               <div
-                className={`mb-4 flex cursor-pointer items-center text-sm font-black uppercase text-white ${
+                className={`mb-4 flex cursor-pointer items-center text-sm font-black uppercase text-white transition-all ${
                   router.pathname === href ? '' : 'opacity-50'
                 }`}
               >
                 <span>{`0${i + 1}`}</span>
                 <span
-                  className={`mx-4 ${
+                  className={`mx-4 transition-all ${
                     router.pathname === href ? 'w-20' : 'w-8'
                   } border-t-2 border-t-white`}
                 />

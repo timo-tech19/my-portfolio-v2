@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
-import Layout from '../components/Layout'
 import Section from '../components/Section'
 
 function Contact() {
   return (
-    <Layout>
+    <>
       <Section title="About" num="04">
         <div className="mx-auto mt-16 w-1/2 text-center ">
           <h2 className="mb-4 text-3xl font-black uppercase">
@@ -27,7 +26,7 @@ function Contact() {
           </Link>
         </div>
       </Section>
-    </Layout>
+    </>
   )
 }
 
