@@ -9,7 +9,7 @@ interface Props {
 function Section({ children, title, num, id }: Props) {
   console.log(num)
   return (
-    <section className="flex h-screen flex-col pt-8" id={id}>
+    <section className="flex h-screen snap-start flex-col pt-8" id={id}>
       <div className="mb-8 flex items-center">
         <h3
           className={`relative px-2 text-4xl font-black uppercase tracking-wider`}

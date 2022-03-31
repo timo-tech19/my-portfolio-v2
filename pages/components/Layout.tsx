@@ -4,11 +4,13 @@ import Navbar from './Navbar'
 
 const Layout: NextPage = ({ children }) => {
   return (
-    <div className="relative mx-auto min-h-screen max-w-[1270px] overflow-x-hidden bg-dark px-2">
-      {children}
+    <>
+      <div className="no-scrollbar relative mx-auto h-screen max-w-[1270px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll scroll-smooth bg-dark px-2">
+        {children}
+      </div>
       <Navbar />
       <Logo />
-    </div>
+    </>
   )
 }
 

@@ -12,7 +12,7 @@ import Section from '../components/Section'
 function About() {
   return (
     <>
-      <Section title="About" num="02" id="#about">
+      <Section title="About" num="02" id="about">
         <div className="flex flex-col-reverse md:flex-row">
           <div className="mb-2 md:w-1/2">
             <p className="p-8 text-center leading-relaxed md:pr-8 md:text-left">

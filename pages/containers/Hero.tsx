@@ -25,7 +25,10 @@ function Hero() {
 
   return (
     <>
-      <header className="flex h-screen w-full flex-col pt-16" id="#home">
+      <header
+        className="flex h-screen w-full snap-start flex-col pt-16"
+        id="home"
+      >
         {/* Header line and name */}
         <div className="flex items-center justify-between">
           <div className="mr-8 grow">

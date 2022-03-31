@@ -12,7 +12,7 @@ const links = [
   {
     id: 0,
     title: 'Home',
-    href: '/',
+    href: '#home',
     Icon: AiFillHome,
   },
   {

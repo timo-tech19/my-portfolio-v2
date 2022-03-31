@@ -5,7 +5,7 @@ import Section from '../components/Section'
 function Contact() {
   return (
     <>
-      <Section title="About" num="04" id="#contact">
+      <Section title="About" num="04" id="contact">
         <div className="mx-auto mt-16 w-1/2 text-center ">
           <h2 className="mb-4 text-3xl font-black uppercase">
             Let's work together!
