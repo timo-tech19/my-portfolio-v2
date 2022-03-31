@@ -25,7 +25,7 @@ function Hero() {
 
   return (
     <>
-      <header className="flex h-screen w-full flex-col pt-16">
+      <header className="flex h-screen w-full flex-col pt-16" id="#home">
         {/* Header line and name */}
         <div className="flex items-center justify-between">
           <div className="mr-8 grow">
@@ -45,7 +45,7 @@ function Hero() {
         </div>
 
         {/* Big title */}
-        <div className="mt-8">
+        <div className="flex grow flex-col justify-center">
           <motion.h2 className="mx-auto mt-12 flex w-11/12 flex-col text-center text-5xl font-bold text-white md:mt-8 md:text-8xl">
             <motion.span
               animate={titleLeft}
@@ -69,18 +69,18 @@ function Hero() {
               Developer
             </motion.span>
           </motion.h2>
-        </div>
-
-        <div className="mx-auto">
           <Link href="mailto:timoheman16@gmail.com">
-            <motion.button
-              animate={btn}
-              initial={{ y: -100, opacity: 0, scale: 0.6 }}
-              type="button"
-              className="mx-auto mt-16 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white md:mt-8"
-            >
-              Work With Me
-            </motion.button>
+            <a className="mx-auto w-fit">
+              <motion.button
+                onClick={() => console.log('clicked')}
+                animate={btn}
+                initial={{ y: -100, opacity: 0, scale: 0.6 }}
+                type="button"
+                className="mx-auto mt-16 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white md:mt-8"
+              >
+                Work With Me
+              </motion.button>
+            </a>
           </Link>
         </div>
       </header>

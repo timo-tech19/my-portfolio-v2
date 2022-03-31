@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 const Layout: NextPage = ({ children }) => {
   return (
-    <div className="relative -z-50 mx-auto min-h-screen max-w-[1270px] bg-dark px-2">
+    <div className="relative mx-auto min-h-screen max-w-[1270px] bg-dark px-2">
       {children}
       <Navbar />
       <Logo />

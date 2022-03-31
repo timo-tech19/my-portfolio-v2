@@ -22,7 +22,7 @@ const projects = [
 function Projects() {
   return (
     <>
-      <Section title="Projects" num="03">
+      <Section title="Projects" num="03" id="#projects">
         <div className="flex">
           <div className="w-1/2">
             <p className="w-3/4">

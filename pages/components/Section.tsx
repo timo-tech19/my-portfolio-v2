@@ -4,11 +4,12 @@ interface Props {
   children?: React.ReactNode
   title: string
   num: string
+  id: string
 }
-function Section({ children, title, num }: Props) {
+function Section({ children, title, num, id }: Props) {
   console.log(num)
   return (
-    <section className="h-screen pt-8">
+    <section className="flex h-screen flex-col pt-8" id={id}>
       <div className="mb-8 flex items-center">
         <h3
           className={`relative px-2 text-4xl font-black uppercase tracking-wider`}
@@ -21,7 +22,7 @@ function Section({ children, title, num }: Props) {
         </h3>
         <div className="ml-24 grow border-t-2 border-t-white opacity-30" />
       </div>
-      {children}
+      <div className="flex grow items-center justify-center">{children}</div>
     </section>
   )
 }
