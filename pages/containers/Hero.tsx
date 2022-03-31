@@ -11,11 +11,11 @@ function Hero() {
   const btn = useAnimation()
 
   async function sequence() {
-    await topLine.start({ width: '100%', transition: { duration: 0.5 } })
-    await topName.start({ opacity: 1, x: 0 })
-    await titleCenter.start({ scale: 1, opacity: 1 })
+    await topLine.start({ width: '100%', transition: { duration: 0.3 } })
+    topName.start({ opacity: 1, x: 0 })
+    titleCenter.start({ scale: 1, opacity: 1 })
     titleLeft.start({ x: 0, opacity: 1 })
-    await titleRight.start({ x: 0, opacity: 1 })
+    titleRight.start({ x: 0, opacity: 1 })
     btn.start({ y: 0, scale: 1, opacity: 1 })
   }
 
@@ -74,9 +74,11 @@ function Hero() {
               <motion.button
                 onClick={() => console.log('clicked')}
                 animate={btn}
-                initial={{ y: -100, opacity: 0, scale: 0.6 }}
+                initial={{ opacity: 0, scale: 1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ y: 2 }}
                 type="button"
-                className="mx-auto mt-16 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white md:mt-8"
+                className="mx-auto mt-16 -translate-y-96 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 uppercase text-white hover:opacity-0 md:mt-8"
               >
                 Work With Me
               </motion.button>
