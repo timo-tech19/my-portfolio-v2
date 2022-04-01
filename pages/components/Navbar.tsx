@@ -64,6 +64,7 @@ function Navbar() {
       <ul>
         {links.map(({ title, href, Icon }, i) => (
           <motion.li
+            key={i}
             initial={{ x: -100 }}
             animate={{
               x: 0,

@@ -1,4 +1,5 @@
-import React from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import React, { useEffect } from 'react'
 import { FaReact } from 'react-icons/fa'
 import {
   SiExpress,
@@ -7,15 +8,31 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si'
+import { useInView } from 'react-intersection-observer'
 import Section from '../components/Section'
 
 function About() {
+  const { ref, inView } = useInView()
+  const controls = useAnimation()
+
+  const sequence = async () => {
+    controls.start({ y: 0, opacity: 1 })
+  }
+
+  const reverse = async () => {
+    controls.start({ y: -10, opacity: 0 })
+  }
+
+  useEffect(() => {
+    console.log(inView)
+  }, [inView])
+
   return (
     <>
-      <Section title="About" num="02" id="about">
+      <Section title="About" num="02" id="about" el={ref}>
         <div className="flex flex-col-reverse md:flex-row">
           <div className="mb-2 md:w-1/2">
-            <p className="p-8 text-center leading-relaxed md:pr-8 md:text-left">
+            <motion.p className="text-center text-sm leading-relaxed md:p-8 md:pr-8 md:text-left md:text-base">
               Hi, I'm Timo. I am a{' '}
               <span className="font-bold text-secondary">
                 Self-taught Front-End Web Developer
@@ -33,8 +50,8 @@ function About() {
               enjoyed every step of the way since I started learning more than 4
               years ago. Here are a few famous technologies I picked up along
               the way:
-            </p>
-            <ul className="mx-auto mt-4 flex w-3/4 flex-wrap px-8 md:w-full">
+            </motion.p>
+            <ul className="mx-auto mt-4 flex w-full flex-wrap justify-center px-8">
               <li className="mb-2 flex w-1/2 items-center">
                 <FaReact className="mr-4 h-6 w-6 text-[#61DBFB]" /> React
               </li>

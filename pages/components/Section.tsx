@@ -5,11 +5,21 @@ interface Props {
   title: string
   num: string
   id: string
+  el?: (node?: Element | null | undefined) => void
+  bg?: string
 }
-function Section({ children, title, num, id }: Props) {
-  console.log(num)
+
+function Section({ children, title, num, id, el, bg }: Props) {
   return (
-    <section className="flex h-screen snap-start flex-col pt-8" id={id}>
+    <section
+      className="relative flex h-screen snap-start flex-col bg-cover bg-center bg-no-repeat pt-8 "
+      style={bg ? { backgroundImage: `url('${bg}')` } : undefined}
+      id={id}
+      ref={el}
+    >
+      {bg && (
+        <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-b from-black via-[#000d] to-transparent md:bg-gradient-to-r" />
+      )}
       <div className="mb-8 flex items-center">
         <h3
           className={`relative px-2 text-4xl font-black uppercase tracking-wider`}

@@ -5,8 +5,8 @@ import Section from '../components/Section'
 function Contact() {
   return (
     <>
-      <Section title="About" num="04" id="contact">
-        <div className="mx-auto mt-16 w-1/2 text-center ">
+      <Section title="Contact" num="04" id="contact">
+        <div className="mx-auto mt-16 w-3/4 text-center md:w-1/2 ">
           <h2 className="mb-4 text-3xl font-black uppercase">
             Let's work together!
           </h2>
@@ -17,12 +17,14 @@ function Contact() {
             below.
           </p>
           <Link href="mailto:timoheman16@gmail.com">
-            <button
-              type="button"
-              className="mx-auto mt-8 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-2xl uppercase text-white"
-            >
-              Work With Me
-            </button>
+            <a>
+              <button
+                type="button"
+                className="mx-auto mt-8 cursor-pointer rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-2xl uppercase text-white"
+              >
+                Work With Me
+              </button>
+            </a>
           </Link>
         </div>
       </Section>
