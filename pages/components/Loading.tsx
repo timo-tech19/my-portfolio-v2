@@ -32,7 +32,7 @@ function Loading({ onComplete }: Props) {
 
   return (
     <div className="flex h-screen w-screen items-center justify-center">
-      <motion.h1 className="flex h-full w-full items-center justify-center text-9xl font-black tracking-wide ">
+      <motion.h1 className="flex h-full w-full items-center justify-center text-7xl font-black tracking-wide md:text-9xl ">
         {'timotech'.split('').map((char, i) => (
           <motion.span
             key={i}

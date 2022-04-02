@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { BsTwitter, BsGithub, BsLinkedin } from 'react-icons/bs'
@@ -112,7 +111,11 @@ function Navbar() {
       </div>
 
       {/* Tab Nav */}
-      <ul className="fixed bottom-0 left-0 z-10 flex w-full items-start justify-around bg-black shadow-lg shadow-dark md:hidden">
+      <motion.ul
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        className="fixed bottom-0 left-0 z-10 flex w-full items-start justify-around bg-black shadow-lg shadow-dark md:hidden"
+      >
         {links.map(({ title, href, Icon }, i) => (
           <motion.li className="grow">
             <Link href={href}>
@@ -127,7 +130,7 @@ function Navbar() {
             </Link>
           </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </>
   )
 }
