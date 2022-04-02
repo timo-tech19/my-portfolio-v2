@@ -58,8 +58,10 @@ const socials = [
 function Navbar() {
   return (
     <>
-      <div className="top-0 left-2 z-10 hidden h-full flex-col items-start justify-end md:fixed md:flex">
-        <ul>
+      {/* fixed top-0 right-2 z-10 flex h-[90%] flex-col items-start justify-end md:left-2 md:h-full */}
+      {/* top-0 left-2 z-10 hidden h-full flex-col items-start justify-end md:fixed md:flex */}
+      <div className="fixed top-0 right-2 z-10 flex h-[90%] flex-col items-start justify-end md:left-2 md:right-auto md:h-full">
+        <ul className="hidden md:block">
           {links.map(({ title, href, Icon }, i) => (
             <motion.li
               key={i}
@@ -121,7 +123,7 @@ function Navbar() {
             <Link href={href}>
               <a>
                 <div
-                  className={`group border-b-4 border-black py-4 opacity-50 hover:border-b-secondary hover:opacity-100`}
+                  className={`group border-b-4 border-black py-4 opacity-50 transition-colors duration-300 hover:border-b-secondary hover:opacity-100`}
                 >
                   <Icon className="mx-auto text-xl text-white" />
                   {/* <p className="text-white">{title}</p> */}
