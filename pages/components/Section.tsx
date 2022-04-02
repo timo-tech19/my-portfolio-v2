@@ -32,7 +32,9 @@ function Section({ children, title, num, id, el, bg }: Props) {
         </h3>
         <div className="ml-24 grow border-t-2 border-t-white opacity-30" />
       </div>
-      <div className="flex grow items-center justify-center">{children}</div>
+      <div className="flex md:grow md:items-center md:justify-center">
+        {children}
+      </div>
     </section>
   )
 }

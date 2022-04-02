@@ -26,7 +26,7 @@ function Hero() {
   return (
     <>
       <header
-        className="flex h-screen w-full snap-start flex-col pt-16"
+        className="flex h-[90vh] w-full snap-start flex-col pt-16 md:h-screen"
         id="home"
       >
         {/* Header line and name */}
