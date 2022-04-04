@@ -1,5 +1,5 @@
+import { AnimationControls, motion } from 'framer-motion'
 import React from 'react'
-
 interface Props {
   children?: React.ReactNode
   title: string
@@ -11,7 +11,9 @@ interface Props {
 
 function Section({ children, title, num, id, el, bg }: Props) {
   return (
-    <section
+    <motion.section
+      initial="hide"
+      animate="show"
       className="relative flex h-screen snap-start flex-col bg-cover bg-center bg-no-repeat pt-8 "
       style={bg ? { backgroundImage: `url('${bg}')` } : undefined}
       id={id}
@@ -35,7 +37,7 @@ function Section({ children, title, num, id, el, bg }: Props) {
       <div className="flex md:grow md:items-center md:justify-center">
         {children}
       </div>
-    </section>
+    </motion.section>
   )
 }
 

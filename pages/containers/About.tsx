@@ -9,31 +9,57 @@ import {
   SiTypescript,
 } from 'react-icons/si'
 import { useInView } from 'react-intersection-observer'
+import { aboutTextAnimation } from '../animations'
 import Section from '../components/Section'
-
+import useScroll from '../hooks/useScroll'
 function About() {
-  const { ref, inView } = useInView()
-  const controls = useAnimation()
+  const { ref, inView } = useInView({ threshold: 0.5 })
+  const text = useAnimation()
+  const stack = useAnimation()
+  const image = useAnimation()
+  const imageBackground = useAnimation()
 
-  const sequence = async () => {
-    controls.start({ y: 0, opacity: 1 })
+  const sequenceIn = async () => {
+    imageBackground.start({ scale: 1, opacity: 1, rotate: 2 })
+    await image.start({ scale: 1, opacity: 1 })
+    text.start({ y: 0, opacity: 1 })
+    stack.start({ opacity: 1 })
   }
 
-  const reverse = async () => {
-    controls.start({ y: -10, opacity: 0 })
+  const sequenceOut = async () => {
+    imageBackground.start({ scale: 0.6, opacity: 0, rotate: 360 })
+    image.start({ scale: 0.6, opacity: 0 })
+    text.start({ y: 200, opacity: 0 })
+    stack.start({ opacity: 0 })
   }
 
   useEffect(() => {
-    console.log(inView)
+    if (inView) {
+      sequenceIn()
+    } else {
+      sequenceOut()
+    }
   }, [inView])
+
+  // const sequence = async () => {
+  //   controls.start({ y: 0, opacity: 1 })
+  // }
+
+  // const reverse = async () => {
+  //   controls.start({ y: -10, opacity: 0 })
+  // }
 
   return (
     <>
       <Section title="About" num="02" id="about" el={ref}>
         <div className="flex flex-col-reverse md:flex-row">
           <div className="mb-2 md:w-1/2">
-            <motion.p className="text-center text-sm leading-relaxed md:p-8 md:pr-8 md:text-left md:text-base">
-              Hi, I'm Timo. I am a{' '}
+            <motion.p
+              initial={{ y: 100, opacity: 0 }}
+              animate={text}
+              className="text-center text-sm leading-relaxed md:p-8 md:pr-8 md:text-left md:text-base"
+            >
+              {String(inView)} Hi, I'm Timo. I am a{' '}
               <span className="font-bold text-secondary">
                 Self-taught Front-End Web Developer
               </span>{' '}
@@ -51,34 +77,77 @@ function About() {
               years ago. Here are a few famous technologies I picked up along
               the way:
             </motion.p>
-            <ul className="mx-auto mt-4 flex w-full flex-wrap justify-center px-8">
-              <li className="mb-2 flex w-1/2 items-center">
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={stack}
+              className="mx-auto mt-4 flex w-full flex-wrap justify-center px-8"
+            >
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={stack}
+                transition={{ delay: 0.2 }}
+                className="mb-2 flex w-1/2 items-center"
+              >
                 <FaReact className="mr-4 h-6 w-6 text-[#61DBFB]" /> React
-              </li>
-              <li className="mb-2 flex w-1/2 items-center">
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={stack}
+                transition={{ delay: 0.3 }}
+                className="mb-2 flex w-1/2 items-center"
+              >
                 <SiJavascript className="mr-4 h-6 w-6 text-[#F7DF1E]" />{' '}
                 JavaScript
-              </li>
-              <li className="mb-2 flex w-1/2 items-center">
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={stack}
+                transition={{ delay: 0.4 }}
+                className="mb-2 flex w-1/2 items-center"
+              >
                 <SiTypescript className="mr-4 h-6 w-6 text-[#1976D2]" />{' '}
                 TypeScript
-              </li>
-              <li className="mb-2 flex w-1/2 items-center">
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={stack}
+                transition={{ delay: 0.5 }}
+                className="mb-2 flex w-1/2 items-center"
+              >
                 <SiTailwindcss className="mr-4 h-6 w-6 text-[#6DD7B9]" />{' '}
                 TailWind CSS
-              </li>
-              <li className="mb-2 flex w-1/2 items-center">
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={stack}
+                transition={{ delay: 0.6 }}
+                className="mb-2 flex w-1/2 items-center"
+              >
                 <SiGraphql className="mr-4 h-6 w-6 text-[#FF4081]" /> GraphQL
-              </li>
-              <li className="mb-2 flex w-1/2 items-center">
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={stack}
+                transition={{ delay: 0.7 }}
+                className="mb-2 flex w-1/2 items-center"
+              >
                 <SiExpress className="mr-4 h-6 w-6 text-white" /> Express
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
           </div>
           <div className="mb-8 flex items-center justify-center md:w-1/2">
             <div className="relative h-[10rem] w-[10rem] md:h-[25rem] md:w-[25rem]">
-              <div className="absolute h-full w-full rotate-2 bg-gradient-to-br from-primary to-secondary"></div>
-              <div className="absolute h-full w-full bg-black"></div>
+              <motion.div
+                initial={{ scale: 0, opacity: 0, rotate: 360 }}
+                transition={{ stiffness: 25 }}
+                animate={imageBackground}
+                className="absolute h-full w-full rotate-2 bg-gradient-to-br from-primary to-secondary"
+              ></motion.div>
+              <motion.div
+                initial={{ scale: 0.6, opacity: 0, rotate: 180 }}
+                animate={image}
+                className="absolute h-full w-full bg-black"
+              ></motion.div>
             </div>
           </div>
         </div>
