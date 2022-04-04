@@ -1,4 +1,5 @@
 import { motion, useAnimation } from 'framer-motion'
+import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { FaReact } from 'react-icons/fa'
 import {
@@ -9,9 +10,9 @@ import {
   SiTypescript,
 } from 'react-icons/si'
 import { useInView } from 'react-intersection-observer'
-import { aboutTextAnimation } from '../animations'
 import Section from '../components/Section'
-import useScroll from '../hooks/useScroll'
+import me from '../../public/timo.jpg'
+
 function About() {
   const { ref, inView } = useInView({ threshold: 0.5 })
   const text = useAnimation()
@@ -59,7 +60,7 @@ function About() {
               animate={text}
               className="text-center text-sm leading-relaxed md:p-8 md:pr-8 md:text-left md:text-base"
             >
-              {String(inView)} Hi, I'm Timo. I am a{' '}
+              Hi, I'm Timo. I am a{' '}
               <span className="font-bold text-secondary">
                 Self-taught Front-End Web Developer
               </span>{' '}
@@ -144,10 +145,17 @@ function About() {
                 className="absolute h-full w-full rotate-2 bg-gradient-to-br from-primary to-secondary"
               ></motion.div>
               <motion.div
-                initial={{ scale: 0.6, opacity: 0, rotate: 180 }}
+                initial={{ scale: 0.6, opacity: 0 }}
                 animate={image}
-                className="absolute h-full w-full bg-black"
-              ></motion.div>
+                className="absolute h-full w-full"
+              >
+                <Image
+                  src={me}
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover object-center"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
