@@ -21,7 +21,7 @@ function About() {
   const imageBackground = useAnimation()
 
   const sequenceIn = async () => {
-    imageBackground.start({ scale: 1, opacity: 1, rotate: 2 })
+    imageBackground.start({ scale: 1.01, opacity: 1, rotate: 2 })
     await image.start({ scale: 1, opacity: 1 })
     text.start({ y: 0, opacity: 1 })
     stack.start({ opacity: 1 })
@@ -68,8 +68,8 @@ function About() {
               <span className="font-bold text-primary">
                 beautiful UI design
               </span>
-              . I currently work at FieldR as a Mobile Developer. I also have
-              experience working with the{' '}
+              . I currently work at FieldR as a React Native Mobile Developer. I
+              also have experience working with the{' '}
               <span className="font-bold text-primary">
                 back-end development
               </span>

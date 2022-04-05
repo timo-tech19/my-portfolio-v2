@@ -7,7 +7,7 @@ const projects = [
   {
     title: 'ShareMe',
     description:
-      'Full stack social media project for sharing photos with world. Equip with Google Authenication and a Sanity.io backend',
+      'Full stack social media project for sharing photos with world. Basic features for creating, saving and deleting posts(pins). Equip with Google Authenication and a Sanity.io backend',
     stack: ['React', 'TypeScript', 'Sanity', 'TailWind'],
     url: 'http://timotech-shareme.netlify.app/',
     github: 'https://github.com/timo-tech19/ShareMe',
@@ -16,7 +16,7 @@ const projects = [
   {
     title: 'Netflix Clone',
     description:
-      'Neflix clone project for streaming movies. Google and Email authenication using Firebase backend',
+      'Neflix clone project for streaming movies. Fetches data from Firebase backend. Google and Email authenication using Firebase auth',
     stack: ['React', 'Firebase', 'ContextAPI', 'Styled-Components'],
     url: 'https://mflix-live.netlify.app/',
     github: 'https://github.com/timo-tech19/netflix-clone',
@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'Natours',
     description:
-      'Web application for booking tours into natour. Has email authentication, stripe intergration for payments ',
+      'Web application for booking tours into nature. Has email authentication, stripe intergration for payments, advanced best practices for authentication, authorization and error handling in Express applications.',
     stack: ['JavaScript', 'Express', 'Node', 'Mongoose'],
     url: 'http://natours-course-app.herokuapp.com/',
     github: 'https://github.com/timo-tech19/natours',
@@ -111,7 +111,7 @@ function Projects() {
                 <motion.div
                   key={i}
                   onClick={() => handleClick(proj)}
-                  className="mb-4 mr-4 scale-110 cursor-pointer rounded-full bg-black p-4 hover:bg-gradient-to-br hover:from-primary hover:to-secondary md:w-2/4 md:rounded-none md:hover:bg-none"
+                  className="mb-4 mr-4 scale-110 cursor-pointer rounded-full bg-black p-4 hover:bg-gradient-to-br hover:from-primary hover:to-secondary md:w-1/2 md:rounded-none md:hover:bg-none"
                   animate={isSelected ? { scale: 1.1 } : { scale: 1 }}
                   whileHover={!isSelected ? { scale: 1.05 } : undefined}
                 >
@@ -124,7 +124,11 @@ function Projects() {
                       i % 2 === 0 ? 'border-secondary' : 'border-primary'
                     }`}
                   />
-                  <p className="hidden text-sm md:block">{description}</p>
+                  <p className="hidden text-sm md:block">
+                    {description.length > 100
+                      ? `${description.slice(0, 100)} ...`
+                      : description}
+                  </p>
                 </motion.div>
               )
             })}
