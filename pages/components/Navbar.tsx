@@ -58,8 +58,6 @@ const socials = [
 function Navbar() {
   return (
     <>
-      {/* fixed top-0 right-2 z-10 flex h-[90%] flex-col items-start justify-end md:left-2 md:h-full */}
-      {/* top-0 left-2 z-10 hidden h-full flex-col items-start justify-end md:fixed md:flex */}
       <div className="fixed top-0 right-2 z-10 flex h-[90%] flex-col items-start justify-end md:left-2 md:right-auto md:h-full">
         <ul className="hidden md:block">
           {links.map(({ title, href, Icon }, i) => (
@@ -72,7 +70,7 @@ function Navbar() {
               }}
             >
               <Link href={href}>
-                <a>
+                <a aria-label={title}>
                   <div
                     className={`group mb-8 flex h-10 w-10 cursor-pointer items-center justify-start overflow-hidden rounded-full bg-black p-2 shadow-xl transition-all duration-300 hover:w-32 hover:bg-primary`}
                   >
@@ -100,7 +98,7 @@ function Navbar() {
               whileHover={{ rotate: '360deg', transition: { stiffness: 60 } }}
             >
               <Link href={url}>
-                <a target="_blank">
+                <a target="_blank" aria-label={name}>
                   <div className="flex cursor-pointer p-1 text-lg font-bold text-white">
                     {/* <span>{name}</span> */}
                     <Icon className="mb-2 h-6 w-6" />
@@ -121,12 +119,11 @@ function Navbar() {
         {links.map(({ title, href, Icon }, i) => (
           <motion.li className="grow">
             <Link href={href}>
-              <a>
+              <a aria-label={title}>
                 <div
                   className={`group border-b-4 border-black py-4 opacity-50 transition-colors duration-300 hover:border-b-secondary hover:opacity-100`}
                 >
                   <Icon className="mx-auto text-xl text-white" />
-                  {/* <p className="text-white">{title}</p> */}
                 </div>
               </a>
             </Link>

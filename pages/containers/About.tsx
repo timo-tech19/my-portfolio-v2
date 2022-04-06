@@ -42,14 +42,6 @@ function About() {
     }
   }, [inView])
 
-  // const sequence = async () => {
-  //   controls.start({ y: 0, opacity: 1 })
-  // }
-
-  // const reverse = async () => {
-  //   controls.start({ y: -10, opacity: 0 })
-  // }
-
   return (
     <>
       <Section title="About" num="02" id="about" el={ref}>
@@ -151,6 +143,7 @@ function About() {
               >
                 <Image
                   src={me}
+                  alt="Picture of Timo Heman"
                   width={400}
                   height={400}
                   className="h-full w-full object-cover object-center"
