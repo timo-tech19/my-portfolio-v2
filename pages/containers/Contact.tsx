@@ -48,7 +48,7 @@ function Contact() {
           >
             Looking for a front end dev for your team? You can reach out to me
             via email by clicking the button below. I'm also open to making
-            friends and meeeting awesome people. Be sure to check out my socials
+            friends and meeting awesome people. Be sure to check out my socials
             below.
           </motion.p>
           <Link href="mailto:timoheman16@gmail.com">
